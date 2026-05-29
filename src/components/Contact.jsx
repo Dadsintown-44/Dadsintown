@@ -14,7 +14,7 @@ export default function Contact() {
               Want to see how to transform your brand into a unique style?
               Tell us about your project.
             </p>
-            <a href="mailto:hello@creatiwise.com" className={styles.cta}>
+            <a href="mailto:dadsintown@gmail.com" className={styles.cta}>
               Send a message →
             </a>
           </div>
@@ -24,6 +24,7 @@ export default function Contact() {
               <span className={styles.visualStar}>✦</span>
               <div className={styles.visualRing} />
               <div className={styles.visualRing2} />
+              <div className={styles.visualRing3} />
             </div>
           </div>
         </div>

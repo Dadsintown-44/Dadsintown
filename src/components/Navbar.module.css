@@ -28,14 +28,11 @@
   gap: var(--space-xl);
 }
 
-.logo {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-text-primary);
-  letter-spacing: -0.02em;
-  flex-shrink: 0;
-  text-decoration: none;
+.logoImg {
+  max-height: 200px;       /* adjust to taste */
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .links {

@@ -1,7 +1,8 @@
 import styles from './Marquee.module.css';
 
-const brands = ['Salon', 'Salon', 'Yububa', 'Digg', 'Cinfores', 'Adobe', 'Figma', 'Notion'];
-
+const brands = ['Branding', 'Digital Marketing', 'WEBSITE DESIGN', 'SOCIAL MEDIA', 'CONTENT CREATION', 
+  'SEO'];
+  
 export default function Marquee() {
   return (
     <div className={styles.wrapper}>

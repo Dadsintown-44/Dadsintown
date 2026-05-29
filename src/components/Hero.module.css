@@ -19,6 +19,31 @@
   pointer-events: none;
 }
 
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  max-width: 700px;
+}
+
+.animatedText {
+  display: inline-block;
+  min-width: 18ch;
+  min-height: 90px;
+  color: #111;
+}
+
+.heroLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.heroRight {
+  flex-shrink: 0;
+}
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -153,12 +178,15 @@
 .statsBar {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
-  background: var(--color-bg-gray);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  padding: var(--space-md) var(--space-lg);
+  justify-content: space-between;
+  gap: 20px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 24px;
+  padding: 18px 22px;
   width: fit-content;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
 
 .stat {
@@ -210,47 +238,197 @@
   border: 1px solid var(--color-border);
 }
 
-.heroImagePlaceholder {
+.imageCard {
+  position: relative;
+  min-height: 420px;
+  border-radius: 32px;
+  background:
+    linear-gradient(
+      145deg,
+      #f7f3ed 0%,
+      #ece7df 100%
+    );
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.heroCardsContainer {
+  position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #f0ede8 0%, #e8e5e0 100%);
+  padding: 40px;
+  background:
+    radial-gradient(circle at top right,
+    rgba(0,0,0,0.04),
+    transparent 40%);
 }
 
-.imageMock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  opacity: 0.5;
+.reviewCard {
+  position: absolute;
+  width: 260px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+  padding: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.4s ease;
+  cursor: pointer;
 }
 
-.imageMockCircle {
-  width: 80px;
-  height: 80px;
+.reviewCard:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.03);
+}
+
+.card1 {
+  top: 60px;
+  left: 20px;
+  transform: rotate(-7deg);
+}
+
+.card2 {
+  top: 180px;
+  right: 30px;
+  transform: rotate(6deg);
+}
+
+.card3 {
+  bottom: 40px;
+  left: 80px;
+  transform: rotate(-4deg);
+}
+
+.clientTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.clientImg {
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ccc, #999);
+  object-fit: cover;
 }
 
-.imageMockLines {
+.clientTop h4 {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 700;
+  color: #111;
+}
+
+.clientTop p {
+  font-size: 0.85rem;
+  margin: 2px 0 0;
+  color: #777;
+}
+
+.reviewQuote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+  font-style: italic;
+  display: block;
+}
+
+.reviewCard {
+  position: absolute;
+  width: 250px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.reviewCard:hover {
+  transform: rotate(0deg) translateY(-10px);
+}
+
+.reviewCard:nth-child(1) {
+  top: 40px;
+  left: 40px;
+  transform: rotate(-8deg);
+}
+
+.reviewCard:nth-child(2) {
+  top: 140px;
+  right: 40px;
+  transform: rotate(8deg);
+}
+
+.reviewCard:nth-child(3) {
+  bottom: 50px;
+  left: 90px;
+  transform: rotate(-4deg);
+}
+
+.profileCircle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      135deg,
+      #d8c8b6,
+      #b89c80
+    );
+  margin-bottom: 12px;
+}
+
+.reviewCard h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.reviewQuote {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.floatingBadge {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  background: #111;
+  color: white;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 0.8rem;
   display: flex;
-  flex-direction: column;
   gap: 8px;
   align-items: center;
 }
 
-.imageMockLines span {
-  display: block;
-  height: 8px;
-  border-radius: 4px;
-  background: #ccc;
+/* Premium doodles */
+
+.hero::after {
+  content: '✦';
+  position: absolute;
+  top: 18%;
+  right: 18%;
+  font-size: 26px;
+  opacity: 0.3;
 }
 
-.imageMockLines span:nth-child(1) { width: 120px; }
-.imageMockLines span:nth-child(2) { width: 90px; }
-.imageMockLines span:nth-child(3) { width: 60px; }
+.doodleCircle {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 140px;
+  height: 140px;
+  border: 1px dashed rgba(0,0,0,0.1);
+  border-radius: 50%;
+}
+
 
 .floatingBadge {
   position: absolute;

@@ -2,40 +2,60 @@
   overflow: hidden;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: 16px 0;
-  background: var(--color-bg);
+  padding: 20px 0;
+  background: linear-gradient(
+    to right,
+    #faf8f5,
+    #ffffff,
+    #faf8f5
+  );
+  position: relative;
 }
 
 .track {
   display: flex;
-  width: max-content;
-  animation: marquee 22s linear infinite;
+  width: fit-content;
+  animation: marquee 18s linear infinite;
+}
+
+.track:hover {
+  animation-play-state: paused;
 }
 
 .item {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 var(--space-lg);
+  gap: 16px;
+  padding: 0 30px;
   white-space: nowrap;
 }
 
 .dot {
-  color: var(--color-text-muted);
-  font-size: 1.1rem;
-  font-weight: 300;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 1rem;
 }
 
 .brandName {
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text-muted);
-  letter-spacing: 0.05em;
+  color: #555;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: color var(--duration-fast) var(--ease-smooth);
+  transition: all 0.3s ease;
 }
 
 .item:hover .brandName {
-  color: var(--color-text-primary);
+  color: #111;
+  transform: translateY(-2px);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }

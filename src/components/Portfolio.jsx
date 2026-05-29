@@ -1,9 +1,9 @@
 import styles from './Portfolio.module.css';
 
 const projects = [
-  { title: 'Al product', cat: 'Brand Identity', color: '#e8f4e8' },
-  { title: 'Al product', cat: 'UI/UX Design', color: '#e8e8f4' },
-  { title: 'Al product', cat: 'Web Design', color: '#f4e8e8' },
+  { title: 'Stilvol', cat: 'Brand Identity', color: '#e8f4e8' },
+  { title: 'Unicorn', cat: 'Social Media', color: '#e8e8f4' },
+  { title: 'EventFurniture', cat: 'Web Design', color: '#f4e8e8' },
 ];
 
 export default function Portfolio() {

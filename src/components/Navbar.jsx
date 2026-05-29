@@ -23,7 +23,15 @@ export default function Navbar() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <a href="#" className={styles.logo}>creatiwise.</a>
+
+        {/* ↓ Logo image replaces the text anchor */}
+        <a href="#" className={styles.logo}>
+          <img
+            src="/dadsintown-logo-source1.png"
+            alt="Dadsintown logo"
+            className={styles.logoImg}
+          />
+        </a>
 
         <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
           {navLinks.map((link) => (

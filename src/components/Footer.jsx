@@ -1,41 +1,111 @@
 import styles from './Footer.module.css';
 
 const footerLinks = {
-  Home: ['About us', 'Services', 'Portfolio', 'Testimonials'],
-  Support: ['FAQ', 'Pricing', 'Contact', 'Privacy'],
-  'Social Media': ['Twitter', 'Instagram', 'LinkedIn', 'Dribbble'],
+  Company: [
+    'About us',
+    'Services',
+    'Portfolio',
+    'Contact',
+  ],
+
+  Specialties: [
+    'Digital Marketing',
+    'Website Development',
+    'Social Media Marketing',
+    'Search Engine Optimisation',
+    'Brand Optimization',
+  ],
 };
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
+
+        {/* Top Section */}
         <div className={styles.top}>
+
+          {/* Brand Section */}
           <div className={styles.brand}>
-            <span className={styles.logo}>creatiwise.</span>
+            <h2 className={styles.logo}>
+              Dadsintown.
+            </h2>
+
             <p className={styles.tagline}>
-              We craft brands and digital experiences that matter.
+              Turning brands into conversation starters through
+              strategy, storytelling, digital experiences,
+              and meaningful brand growth.
             </p>
+
+            <div className={styles.contactInfo}>
+              <p>📞 +91 9167736515</p>
+              <p>📍 Andheri, Mumbai</p>
+            </div>
           </div>
 
+          {/* Dynamic Footer Columns */}
           {Object.entries(footerLinks).map(([col, links]) => (
             <div key={col} className={styles.col}>
-              <h4 className={styles.colTitle}>{col}</h4>
+              <h4 className={styles.colTitle}>
+                {col}
+              </h4>
+
               <ul className={styles.colLinks}>
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className={styles.colLink}>{link}</a>
+                    <a href="#" className={styles.colLink}>
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+
+          {/* Social Media Section */}
+          <div className={styles.col}>
+            <h4 className={styles.colTitle}>
+              Connect
+            </h4>
+
+            <ul className={styles.colLinks}>
+              <li>
+                <a
+                  href="https://www.instagram.com/dadsintown/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.colLink}
+                >
+                  Instagram
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/red-box-agency/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.colLink}
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
+        {/* Bottom */}
         <div className={styles.bottom}>
-          <span className={styles.copy}>© 2024 Creatiwise. All rights reserved.</span>
-          <span className={styles.made}>Crafted with care.</span>
+          <span className={styles.copy}>
+            © 2026 Dadsintown. All rights reserved.
+          </span>
+
+          <span className={styles.made}>
+            Crafted with creativity ✦
+          </span>
         </div>
+
       </div>
     </footer>
   );
