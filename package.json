@@ -1,0 +1,22 @@
+{
+  "name": "single-page-nextjs-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^11.3.19",
+    "lenis": "^1.1.16",
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.25.1",
+    "eslint-config-next": "^15.3.2"
+  }
+}

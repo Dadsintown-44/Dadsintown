@@ -1,0 +1,225 @@
+.about {
+  padding: var(--space-4xl) 0;
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* Top row */
+.topRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  max-width: 460px;
+}
+
+.imageCol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imageCard {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4/3;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #2a2a2a, #111);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgMockGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.imgMockTile {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Stats band */
+.statsBand {
+  background: var(--color-bg-dark);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl) var(--space-2xl);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.statsLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.statBig {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--color-text-light);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.statDesc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.waveDecor {
+  position: absolute;
+  bottom: -10px;
+  left: -20px;
+  width: 220px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.statsRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  justify-content: space-between;
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 7px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: background var(--duration-fast) var(--ease-smooth);
+  cursor: default;
+}
+
+.tag:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.teamImageCard {
+  width: 160px;
+  height: 120px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.teamImgPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teamMock {
+  display: flex;
+  gap: -8px;
+}
+
+.teamFace {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  margin-left: -8px;
+}
+
+.teamFace:first-child { margin-left: 0; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .topRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .imageCol {
+    justify-content: flex-start;
+  }
+
+  .imageCard {
+    max-width: 100%;
+  }
+
+  .statsBand {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+  }
+
+  .statsRight {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .teamImageCard {
+    width: 100%;
+    height: 100px;
+  }
+}

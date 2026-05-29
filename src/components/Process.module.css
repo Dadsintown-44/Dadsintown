@@ -1,0 +1,174 @@
+.process {
+  padding: var(--space-4xl) 0;
+  background: var(--color-bg-gray);
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+  margin-bottom: var(--space-3xl);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 3vw, 2.625rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.subtext {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* Notes area */
+.notesArea {
+  position: relative;
+  min-height: 480px;
+}
+
+.path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl) var(--space-2xl);
+  position: relative;
+  z-index: 1;
+}
+
+.note {
+  background: var(--color-note-bg);
+  border-radius: 4px 4px 4px 4px;
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-note);
+  position: relative;
+  transform: rotate(var(--rot, 0deg));
+  transition: transform var(--duration-normal) var(--ease-spring),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+  animation: float 6s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  cursor: default;
+}
+
+.note::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.02), transparent);
+  border-radius: 4px 4px 0 0;
+}
+
+.note:hover {
+  transform: rotate(0deg) translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+  animation-play-state: paused;
+}
+
+.pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 40% 35%, #555, #111);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35), inset 0 1px 2px rgba(255,255,255,0.2);
+  z-index: 2;
+}
+
+.pin::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 14px;
+  background: linear-gradient(to bottom, #444, transparent);
+  border-radius: 0 0 2px 2px;
+}
+
+.stepNum {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+  font-style: italic;
+}
+
+.stepBody {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.readyBadge {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--space-xl);
+}
+
+.badgeCurve {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  font-style: normal;
+}
+
+.badgeCurve em {
+  font-style: italic;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .notesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .note {
+    transform: rotate(0deg) !important;
+    animation: none !important;
+  }
+}
