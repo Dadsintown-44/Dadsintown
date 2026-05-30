@@ -42,7 +42,7 @@
   max-width: 500px;
 }
 
-/* RIGHT IMAGE SECTION */
+/* RIGHT VIDEO SECTION */
 .imageCol {
   display: flex;
   justify-content: flex-end;
@@ -51,48 +51,23 @@
 .imageCard {
   width: 100%;
   max-width: 430px;
-  aspect-ratio: 4/3;
+  height: 520px; /* portrait video height */
   border-radius: 32px;
   overflow: hidden;
+  background: #111;
 }
 
-.imagePlaceholder {
+.aboutVideo {
   width: 100%;
   height: 100%;
-  background: linear-gradient(145deg, #1d1d1d, #090909);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 20px;
-}
-
-.serviceCard {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-align: center;
-  transition: 0.35s ease;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-}
-
-.serviceCard:hover {
-  transform: translateY(-8px);
-  background: rgba(255,255,255,0.12);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  object-fit: cover;
 }
 
 /* BLACK BAND */
 .statsBand {
   background: linear-gradient(135deg, #0c0c0c, #171717);
   border-radius: 36px;
-  padding: 42px;
+  padding: 28px 42px; /* reduced height */
   display: grid;
   grid-template-columns: auto 1fr;
   gap: var(--space-2xl);
@@ -132,10 +107,17 @@
   gap: 30px;
 }
 
+/* ONE LINE TAGS */
 .tagCloud {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tagCloud::-webkit-scrollbar {
+  display: none;
 }
 
 .tag {
@@ -146,6 +128,7 @@
   color: rgba(255,255,255,0.9);
   font-size: 0.85rem;
   transition: 0.3s ease;
+  white-space: nowrap;
 }
 
 .tag:hover {
@@ -155,7 +138,7 @@
 
 .teamImageCard {
   width: 220px;
-  min-height: 140px;
+  min-height: 120px;
   border-radius: 26px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
@@ -193,6 +176,11 @@
     justify-content: center;
   }
 
+  .imageCard {
+    max-width: 100%;
+    height: 420px;
+  }
+
   .statsBand {
     grid-template-columns: 1fr;
     padding: 28px;
@@ -202,59 +190,6 @@
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .bgImageCard {
-  width: 320px;
-  height: 220px;
-  border-radius: 28px;
-  overflow: hidden;
-  position: relative;
-
-  /* PUT YOUR IMAGE HERE */
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,0.45),
-      rgba(0,0,0,0.65)
-    ),
-    url('/dadsintown.png');
-
-  background-size: cover;
-  background-position: center;
-  flex-shrink: 0;
-
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.overlayContent {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-}
-
-.smallTag {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.14);
-  backdrop-filter: blur(10px);
-  color: rgba(255,255,255,0.85);
-  font-size: 0.75rem;
-  margin-bottom: 14px;
-}
-
-.overlayContent h4 {
-  color: white;
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-  font-family: 'Playfair Display', serif;
-}
-
-.overlayContent p {
-  color: rgba(255,255,255,0.75);
-  line-height: 1.6;
-  font-size: 0.9rem;
-}
 
   .teamImageCard {
     width: 100%;
