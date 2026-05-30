@@ -1,64 +1,112 @@
+'use client';
+
 import styles from './Footer.module.css';
 
 const footerLinks = {
   Company: [
-    'About us',
-    'Services',
-    'Portfolio',
-    'Contact',
+    { label: 'Home', href: '#home' },
+    { label: 'About us', href: '#about-us' },
+    { label: 'Services', href: '#services' },
+    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Contact', href: '#contact' },
   ],
 
   Specialties: [
-    'Digital Marketing',
-    'Website Development',
-    'Social Media Marketing',
-    'Search Engine Optimisation',
-    'Brand Optimization',
+    { label: 'How we work', href: '#how-we-work' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'Digital Marketing', href: '#services' },
+    { label: 'Website Development', href: '#services' },
+    { label: 'Brand Optimization', href: '#services' },
   ],
 };
 
+const contactItems = [
+  { icon: '📞', label: '+91 9167736515', href: 'tel:+919167736515' },
+  { icon: '📍', label: 'Andheri, Mumbai' },
+];
+
+const socialLinks = [
+  { label: 'Instagram', href: 'https://www.instagram.com/dadsintown/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/red-box-agency/' },
+];
+
 export default function Footer() {
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    if (window.lenis) {
+      window.lenis.scrollTo(el, { offset: -8 });
+    } else {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLinkClick = (e, href) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    scrollTo(id);
+  };
+
   return (
     <footer className={styles.footer} data-animate-section>
       <div className={styles.container}>
 
-        {/* Top Section */}
         <div className={styles.top}>
 
-          {/* Brand Section */}
           <div className={styles.brand}>
-            <h2
-              className={styles.logo}
-              data-animate
-              data-scramble
-            >
+            <h2 className={styles.logo} data-animate data-scramble>
               Dadsintown.
             </h2>
 
             <p className={styles.tagline} data-animate>
-              Turning brands into conversation starters through
-              strategy, storytelling, digital experiences,
-              and meaningful brand growth.
+              Turning brands into conversation starters through strategy, storytelling, digital experiences, and meaningful brand growth.
             </p>
 
             <div className={styles.contactInfo} data-animate>
-              <p>📞 +91 9167736515</p>
-              <p>📍 Andheri, Mumbai</p>
+              {contactItems.map(({ icon, label, href }) => (
+                <a
+                  key={label}
+                  className={styles.contactItem}
+                  href={href ?? '#'}
+                  onClick={(e) => {
+                    if (href?.startsWith('#')) handleLinkClick(e, href);
+                  }}
+                >
+                  <span className={styles.contactIcon}>{icon}</span>
+                  <span>{label}</span>
+                </a>
+              ))}
+            </div>
+
+            <div className={styles.socialList} data-animate>
+              {socialLinks.map(({ label, href }) => (
+                <a
+                  key={label}
+                  className={styles.socialLink}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                >
+                  {label[0]}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Dynamic Footer Columns */}
           {Object.entries(footerLinks).map(([col, links]) => (
             <div key={col} className={styles.col} data-animate>
-              <h4 className={styles.colTitle}>
-                {col}
-              </h4>
-
+              <h4 className={styles.colTitle}>{col}</h4>
               <ul className={styles.colLinks}>
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className={styles.colLink}>
-                      {link}
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className={styles.colLink}
+                      onClick={(e) => handleLinkClick(e, href)}
+                    >
+                      {label}
                     </a>
                   </li>
                 ))}
@@ -66,37 +114,18 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Social Media Section */}
           <div className={styles.col} data-animate>
-            <h4 className={styles.colTitle}>
-              Connect
-            </h4>
-
+            <h4 className={styles.colTitle}>Connect</h4>
             <ul className={styles.colLinks}>
-              <li>
-                <a
-                  href="https://www.instagram.com/dadsintown/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.colLink}
-                >
-                  Instagram
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/red-box-agency/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.colLink}
-                >
-                  LinkedIn
-                </a>
-              </li>
+              {socialLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" className={styles.colLink}>
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
-
         </div>
 
         {/* Bottom */}

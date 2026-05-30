@@ -65,7 +65,7 @@ export default function ScrollAnimations() {
 
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', () => ScrollTrigger.update());
 
     const triggers = [];
     const sections = gsap.utils.toArray('[data-animate-section]');
@@ -79,13 +79,16 @@ export default function ScrollAnimations() {
             start: 'top 75%',
             once: true,
             onEnter: () => {
-              gsap.from(items, {
-                autoAlpha: 0,
-                y: 24,
-                duration: 0.8,
-                ease: 'power3.out',
-                stagger: 0.08,
-              });
+              gsap.fromTo(gsap.utils.toArray(items), 
+                { autoAlpha: 0, y: 24 },
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  duration: 0.8,
+                  ease: 'power3.out',
+                  stagger: 0.08,
+                }
+              );
             },
           })
         );

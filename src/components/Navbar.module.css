@@ -40,6 +40,8 @@
   align-items: center;
   gap: var(--space-lg);
   flex: 1;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .link {
@@ -50,9 +52,10 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px 0;
+  padding: 4px 8px;
   position: relative;
   transition: color var(--duration-fast) var(--ease-smooth);
+  white-space: nowrap;
 }
 
 .link::after {

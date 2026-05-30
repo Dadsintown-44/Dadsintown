@@ -1,10 +1,49 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import styles from './About.module.css';
 
 const tags = ['Marketing', 'Web Design', 'Product Design', 'SEO', 'Brand Positioning'];
 
 export default function About() {
+  const sectionRef = useRef(null);
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const video = videoRef.current;
+    if (!section || !video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const visible = entry.isIntersecting && entry.intersectionRatio >= 0.35;
+        setIsVisible(visible);
+
+        if (visible) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: [0.35, 0.5, 0.75] }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleMute = () => setIsMuted((current) => !current);
+
   return (
-    <section id="about-us" className={styles.about}>
+    <section id="about-us" className={styles.about} ref={sectionRef}>
       <div className={styles.container}>
 
         {/* Top row: text + image */}
@@ -17,23 +56,41 @@ export default function About() {
             <p className={styles.body}>
               At Dadsintown, we craft memorable brand identities, digital stories, and experiences that people remember. From branding and social media to websites and campaigns, we help businesses create impact that goes beyond visibility.
             </p>
+            <p className={styles.subtext}>
+              A short visual introduction to our process, with crisp playback only while this section is in view.
+            </p>
           </div>
 
           <div className={styles.imageCol}>
             <div className={styles.imageCard}>
               <video
+                ref={videoRef}
                 className={styles.aboutVideo}
                 autoPlay
                 loop
+                muted={isMuted}
                 playsInline
               >
                 <source src="/about-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+
+              <div className={styles.videoOverlay}>
+                <span className={styles.videoBadge}>
+                  {isVisible ? 'Playing while visible' : 'Paused when off-screen'}
+                </span>
+                <button
+                  type="button"
+                  className={styles.audioToggle}
+                  onClick={toggleMute}
+                >
+                  {isMuted ? 'Sound Off' : 'Sound On'}
+                </button>
+              </div>
             </div>
           </div>
 
-        </div> {/* ← THIS WAS MISSING */}
+        </div>
 
         {/* Stats band */}
         <div className={styles.statsBand}>
