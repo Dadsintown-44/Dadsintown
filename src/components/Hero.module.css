@@ -60,6 +60,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  min-width: 0;
 }
 
 .welcomeBadge {
@@ -173,6 +174,8 @@
   flex-direction: column;
   gap: var(--space-md);
   animation: fadeIn 0.8s var(--ease-smooth) 0.3s both;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .statsBar {
@@ -185,7 +188,8 @@
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 24px;
   padding: 18px 22px;
-  width: fit-content;
+  width: 100%;
+  max-width: 420px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
 
@@ -236,6 +240,8 @@
   background: var(--color-bg-gray);
   aspect-ratio: 4/3;
   border: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 100%;
 }
 
 .imageCard {

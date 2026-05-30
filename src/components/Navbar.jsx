@@ -16,7 +16,14 @@ export default function Navbar() {
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (!el) return;
+
+    if (window.lenis) {
+      window.lenis.scrollTo(el, { offset: -8 });
+    } else {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+
     setMenuOpen(false);
   };
 

@@ -10,17 +10,16 @@
     #faf8f5
   );
   position: relative;
+  transform: rotate(-1.2deg);
+  transform-origin: center;
 }
 
 .track {
   display: flex;
   width: fit-content;
-  animation: marquee 18s linear infinite;
+  will-change: transform;
 }
 
-.track:hover {
-  animation-play-state: paused;
-}
 
 .item {
   display: inline-flex;
@@ -50,12 +49,3 @@
   transform: translateY(-2px);
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}

@@ -33,21 +33,35 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="how-we-work" className={styles.process}>
+    <section
+      id="how-we-work"
+      className={styles.process}
+      data-animate-section
+    >
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className="section-tag">How we work</span>
-          <h2 className={styles.heading}>
+          <span
+            className="section-tag"
+            data-animate
+            data-scramble
+          >
+            How we work
+          </span>
+          <h2
+            className={styles.heading}
+            data-animate
+            data-scramble
+          >
             Let us show you how we drive<br />
             your brand to new heights
           </h2>
-          <p className={styles.subtext}>
+          <p className={styles.subtext} data-animate>
             A proven four-step process designed to deliver exceptional results —
             from first brief to final launch.
           </p>
         </div>
 
-        <div className={styles.notesArea}>
+        <div className={styles.notesArea} data-animate>
           {/* Dashed path */}
           <svg className={styles.path} viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path
@@ -60,11 +74,14 @@ export default function Process() {
           </svg>
 
           <div className={styles.notesGrid}>
-            {steps.map((step) => (
+            {steps.map((step, i) => (
               <div
                 key={step.num}
                 className={styles.note}
                 style={{ '--rot': step.rot, '--delay': step.delay }}
+                data-animate
+                data-parallax
+                data-parallax-strength={i % 2 === 0 ? 12 : -12}
               >
                 <div className={styles.pin} />
                 <span className={styles.stepNum}>{step.num}</span>
@@ -74,7 +91,7 @@ export default function Process() {
             ))}
           </div>
 
-          <div className={styles.readyBadge}>
+          <div className={styles.readyBadge} data-animate>
             <span className={styles.badgeCurve}>
               <em>✦ Ready to be delivered!</em>
             </span>

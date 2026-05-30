@@ -8,15 +8,29 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className={styles.portfolio}>
+    <section
+      id="portfolio"
+      className={styles.portfolio}
+      data-animate-section
+    >
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className="section-tag">Portfolio</span>
+          <span
+            className="section-tag"
+            data-animate
+            data-scramble
+          >
+            Portfolio
+          </span>
           <div className={styles.headerRow}>
-            <h2 className={styles.heading}>
+            <h2
+              className={styles.heading}
+              data-animate
+              data-scramble
+            >
               Explore our most<br />successful projects
             </h2>
-            <a href="#" className={styles.viewAll}>
+            <a href="#" className={styles.viewAll} data-animate>
               All projects →
             </a>
           </div>
@@ -24,7 +38,13 @@ export default function Portfolio() {
 
         <div className={styles.grid}>
           {projects.map((p, i) => (
-            <div key={i} className={styles.card}>
+            <div
+              key={i}
+              className={styles.card}
+              data-animate
+              data-parallax
+              data-parallax-strength={(i % 2 === 0 ? 14 : -14)}
+            >
               <div
                 className={styles.thumb}
                 style={{ background: p.color }}

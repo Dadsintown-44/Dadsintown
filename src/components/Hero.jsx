@@ -5,28 +5,47 @@ import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
   const scrollToContact = () => {
-    document
-      .getElementById('contact')
-      ?.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById('contact');
+    if (!target) return;
+
+    if (window.lenis) {
+      window.lenis.scrollTo(target, { offset: -8 });
+      return;
+    }
+
+    target.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToAbout = () => {
-    document
-      .getElementById('about-us')
-      ?.scrollIntoView({ behavior: 'smooth' });
+    const target = document.getElementById('about-us');
+    if (!target) return;
+
+    if (window.lenis) {
+      window.lenis.scrollTo(target, { offset: -8 });
+      return;
+    }
+
+    target.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className={styles.hero}>
+    <section
+      id="home"
+      className={styles.hero}
+      data-animate-section
+    >
       <div className={styles.container}>
 
         {/* Left column */}
         <div className={styles.left}>
-          <span className={styles.welcomeBadge}>
+          <span
+            className={styles.welcomeBadge}
+            data-animate
+          >
             Welcome to Dadsintown
           </span>
 
-          <h1 className={styles.heading}>
+          <h1 className={styles.heading} data-animate>
             TURNING BRANDS INTO <br />
             <span className={styles.animatedText}>
               <TypeAnimation
@@ -51,11 +70,11 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className={styles.subtext}>
+          <p className={styles.subtext} data-animate>
             Crafting memorable brands, meaningful stories and digital experiences that move people.
           </p>
 
-          <div className={styles.actions}>
+          <div className={styles.actions} data-animate>
             <button
               className={styles.btnPrimary}
               onClick={scrollToContact}
@@ -69,7 +88,12 @@ export default function Hero() {
         {/* Right column */}
         <div className={styles.right}>
 
-          <div className={styles.statsBar}>
+          <div
+            className={styles.statsBar}
+            data-animate
+            data-parallax
+            data-parallax-strength="-12"
+          >
             <div className={styles.stat}>
               <span className={styles.statNum}>100+</span>
               <span className={styles.statLabel}>
@@ -89,12 +113,19 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className={styles.imageCard}>
+          <div
+            className={styles.imageCard}
+            data-animate
+            data-parallax
+            data-parallax-strength="10"
+          >
 
             <div className={styles.heroCardsContainer}>
 
               <div
                 className={`${styles.reviewCard} ${styles.card1}`}
+                data-parallax
+                data-parallax-strength="-18"
               >
                 <div className={styles.clientTop}>
                   <img
@@ -116,6 +147,8 @@ export default function Hero() {
 
               <div
                 className={`${styles.reviewCard} ${styles.card2}`}
+                data-parallax
+                data-parallax-strength="22"
               >
                 <div className={styles.clientTop}>
                   <img
@@ -137,6 +170,8 @@ export default function Hero() {
 
               <div
                 className={`${styles.reviewCard} ${styles.card3}`}
+                data-parallax
+                data-parallax-strength="-14"
               >
                 <div className={styles.clientTop}>
                   <img
@@ -161,6 +196,7 @@ export default function Hero() {
             <div
               className={styles.floatingBadge}
               onClick={scrollToAbout}
+              data-animate
             >
               <span>Let&apos;s Build Your Brand</span>
               <span className={styles.badgeArrow}>→</span>

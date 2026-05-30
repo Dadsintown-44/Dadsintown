@@ -5,8 +5,12 @@ const brands = ['Branding', 'Digital Marketing', 'WEBSITE DESIGN', 'SOCIAL MEDIA
   
 export default function Marquee() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.track}>
+    <div className={styles.wrapper} data-animate-section>
+      <div
+        className={styles.track}
+        data-animate
+        data-marquee-track
+      >
         {[...brands, ...brands].map((brand, i) => (
           <span key={i} className={styles.item}>
             <span className={styles.dot}>+</span>

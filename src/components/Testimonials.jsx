@@ -27,14 +27,33 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="testimonials" className={styles.testimonials}>
+    <section
+      id="testimonials"
+      className={styles.testimonials}
+      data-animate-section
+    >
       <div className={styles.container}>
-        <span className="section-tag">Reviews</span>
-        <h2 className={styles.heading}>
+        <span
+          className="section-tag"
+          data-animate
+          data-scramble
+        >
+          Reviews
+        </span>
+        <h2
+          className={styles.heading}
+          data-animate
+          data-scramble
+        >
           Here&apos;s what people say about<br />our work
         </h2>
 
-        <div className={styles.card}>
+        <div
+          className={styles.card}
+          data-animate
+          data-parallax
+          data-parallax-strength="-10"
+        >
           <div className={styles.quoteIcon}>&ldquo;</div>
           <p className={styles.quote}>{testimonials[active].quote}</p>
 
@@ -49,7 +68,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className={styles.dots}>
+        <div className={styles.dots} data-animate>
           {testimonials.map((_, i) => (
             <button
               key={i}

@@ -10,21 +10,35 @@ const tags = [
 
 export default function About() {
   return (
-    <section id="about-us" className={styles.about}>
+    <section
+      id="about-us"
+      className={styles.about}
+      data-animate-section
+    >
       <div className={styles.container}>
 
         {/* Top row */}
         <div className={styles.topRow}>
 
           <div className={styles.textCol}>
-            <span className="section-tag">About us</span>
+            <span
+              className="section-tag"
+              data-animate
+              data-scramble
+            >
+              About us
+            </span>
 
-            <h2 className={styles.heading}>
+            <h2
+              className={styles.heading}
+              data-animate
+              data-scramble
+            >
               Turning Brands Into <br />
               Conversation Starters
             </h2>
 
-            <p className={styles.body}>
+            <p className={styles.body} data-animate>
               At Dadsintown, we craft memorable brand identities,
               digital stories, and experiences that people remember.
               From branding and social media to websites and campaigns,
@@ -33,7 +47,12 @@ export default function About() {
           </div>
 
           <div className={styles.imageCol}>
-            <div className={styles.imageCard}>
+            <div
+              className={styles.imageCard}
+              data-animate
+              data-parallax
+              data-parallax-strength="12"
+            >
 
               <div className={styles.imagePlaceholder}>
                 <div className={styles.serviceCard}>
@@ -58,11 +77,16 @@ export default function About() {
         </div>
 
         {/* Bottom black section */}
-        <div className={styles.statsBand}>
+        <div
+          className={styles.statsBand}
+          data-animate
+          data-parallax
+          data-parallax-strength="-10"
+        >
 
           <div className={styles.statsLeft}>
-            <span className={styles.statBig}>100+</span>
-            <span className={styles.statDesc}>
+            <span className={styles.statBig} data-animate>100+</span>
+            <span className={styles.statDesc} data-animate>
               Projects Successfully Delivered
             </span>
 
@@ -83,7 +107,7 @@ export default function About() {
 
           <div className={styles.statsRight}>
 
-            <div className={styles.tagCloud}>
+            <div className={styles.tagCloud} data-animate>
               {tags.map((tag) => (
                 <span key={tag} className={styles.tag}>
                   {tag}
@@ -91,7 +115,7 @@ export default function About() {
               ))}
             </div>
 
-            <div className={styles.bgImageCard}>
+            <div className={styles.bgImageCard} data-animate>
   <div className={styles.overlayContent}>
     <span className={styles.smallTag}>
       Creative • Strategy • Growth

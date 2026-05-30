@@ -118,6 +118,10 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  .logoImg {
+    max-height: 42px;
+  }
+
   .burger {
     display: flex;
   }

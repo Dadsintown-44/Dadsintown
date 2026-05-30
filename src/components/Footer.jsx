@@ -19,7 +19,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-animate-section>
       <div className={styles.container}>
 
         {/* Top Section */}
@@ -27,17 +27,21 @@ export default function Footer() {
 
           {/* Brand Section */}
           <div className={styles.brand}>
-            <h2 className={styles.logo}>
+            <h2
+              className={styles.logo}
+              data-animate
+              data-scramble
+            >
               Dadsintown.
             </h2>
 
-            <p className={styles.tagline}>
+            <p className={styles.tagline} data-animate>
               Turning brands into conversation starters through
               strategy, storytelling, digital experiences,
               and meaningful brand growth.
             </p>
 
-            <div className={styles.contactInfo}>
+            <div className={styles.contactInfo} data-animate>
               <p>📞 +91 9167736515</p>
               <p>📍 Andheri, Mumbai</p>
             </div>
@@ -45,7 +49,7 @@ export default function Footer() {
 
           {/* Dynamic Footer Columns */}
           {Object.entries(footerLinks).map(([col, links]) => (
-            <div key={col} className={styles.col}>
+            <div key={col} className={styles.col} data-animate>
               <h4 className={styles.colTitle}>
                 {col}
               </h4>
@@ -63,7 +67,7 @@ export default function Footer() {
           ))}
 
           {/* Social Media Section */}
-          <div className={styles.col}>
+          <div className={styles.col} data-animate>
             <h4 className={styles.colTitle}>
               Connect
             </h4>
@@ -96,7 +100,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className={styles.bottom}>
+        <div className={styles.bottom} data-animate>
           <span className={styles.copy}>
             © 2026 Dadsintown. All rights reserved.
           </span>

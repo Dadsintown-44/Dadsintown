@@ -35,20 +35,34 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className={styles.services}>
+    <section
+      id="services"
+      className={styles.services}
+      data-animate-section
+    >
       <div className={styles.container}>
         
         {/* Header */}
         <div className={styles.header}>
-          <span className="section-tag">What we do</span>
+          <span
+            className="section-tag"
+            data-animate
+            data-scramble
+          >
+            What we do
+          </span>
 
           <div className={styles.headerRow}>
-            <h2 className={styles.heading}>
+            <h2
+              className={styles.heading}
+              data-animate
+              data-scramble
+            >
               We turn brands into<br />
               unforgettable experiences
             </h2>
 
-            <p className={styles.subtext}>
+            <p className={styles.subtext} data-animate>
               From branding and logo design to digital marketing, social media,
               websites, and content creation — we help brands stand out,
               connect, and grow with purpose.
@@ -58,8 +72,14 @@ export default function Services() {
 
         {/* Services Grid */}
         <div className={styles.grid}>
-          {services.map((svc) => (
-            <div key={svc.title} className={styles.card}>
+          {services.map((svc, i) => (
+            <div
+              key={svc.title}
+              className={styles.card}
+              data-animate
+              data-parallax
+              data-parallax-strength={i % 2 === 0 ? 10 : -10}
+            >
               
               <span
                 className={styles.icon}
