@@ -36,14 +36,12 @@ export default function Testimonials() {
         <span
           className="section-tag"
           data-animate
-          data-scramble
         >
           Reviews
         </span>
         <h2
           className={styles.heading}
           data-animate
-          data-scramble
         >
           Here&apos;s what people say about<br />our work
         </h2>

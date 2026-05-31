@@ -16,13 +16,22 @@ export const metadata = {
   },
   openGraph: {
     title: 'Dadsintown',
-    description: '',
+    description: 'Dadsintown — Turning brands into conversation starters.',
     url: 'https://dadsintown.com',
     images: [
       {
         url: '/dadsintown.png',
+        width: 1200,
+        height: 630,
+        alt: 'Dadsintown open graph banner',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dadsintown',
+    description: 'Dadsintown — Turning brands into conversation starters.',
+    images: ['/dadsintown.png'],
   },
 };
 

@@ -43,14 +43,12 @@ export default function Process() {
           <span
             className="section-tag"
             data-animate
-            data-scramble
           >
             How we work
           </span>
           <h2
             className={styles.heading}
             data-animate
-            data-scramble
           >
             Let us show you how we drive<br />
             your brand to new heights

@@ -5,47 +5,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
-const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-
-function scrambleText(el, duration = 1) {
-  const original = el.dataset.scrambleText || el.textContent || '';
-  el.dataset.scrambleText = original;
-
-  const proxy = { progress: 0 };
-
-  gsap.to(proxy, {
-    progress: 1,
-    duration,
-    ease: 'none',
-    onUpdate: () => {
-      const revealCount = Math.floor(original.length * proxy.progress);
-      let output = '';
-
-      for (let i = 0; i < original.length; i += 1) {
-        const char = original[i];
-        if (char === ' ') {
-          output += ' ';
-          continue;
-        }
-
-        if (i < revealCount) {
-          output += char;
-          continue;
-        }
-
-        const randIndex = Math.floor(
-          Math.random() * SCRAMBLE_CHARS.length
-        );
-        output += SCRAMBLE_CHARS[randIndex];
-      }
-
-      el.textContent = output;
-    },
-    onComplete: () => {
-      el.textContent = original;
-    },
-  });
-}
 
 export default function ScrollAnimations() {
   useEffect(() => {
@@ -94,17 +53,7 @@ export default function ScrollAnimations() {
         );
       }
 
-      const scrambleTargets = section.querySelectorAll('[data-scramble]');
-      scrambleTargets.forEach((el) => {
-        triggers.push(
-          ScrollTrigger.create({
-            trigger: el,
-            start: 'top 80%',
-            once: true,
-            onEnter: () => scrambleText(el, 1),
-          })
-        );
-      });
+      // No scramble effect: text uses simple fade-in animation via data-animate.
     });
 
     const parallaxItems = gsap.utils.toArray('[data-parallax]');

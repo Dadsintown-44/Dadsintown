@@ -55,7 +55,7 @@ export default function Footer() {
         <div className={styles.top}>
 
           <div className={styles.brand}>
-            <h2 className={styles.logo} data-animate data-scramble>
+            <h2 className={styles.logo} data-animate>
               Dadsintown.
             </h2>
 

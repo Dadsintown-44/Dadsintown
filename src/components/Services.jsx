@@ -41,11 +41,11 @@ export default function Services() {
         {/* Hero Section */}
         <div className={styles.heroSection} data-animate-section>
           <div className={styles.heroLeft}>
-            <span className="section-tag" data-animate data-scramble>
+            <span className="section-tag" data-animate>
               Our Services
             </span>
 
-            <h2 className={styles.heroHeading} data-animate data-scramble>
+            <h2 className={styles.heroHeading} data-animate>
               Services that build brands and drive growth.
             </h2>
 

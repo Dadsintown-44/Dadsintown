@@ -18,14 +18,12 @@ export default function Contact() {
             <span
               className={styles.eyebrow}
               data-animate
-              data-scramble
             >
               Get in touch
             </span>
             <h2
               className={styles.heading}
               data-animate
-              data-scramble
             >
               Let&apos;s start designing<br />your project
             </h2>

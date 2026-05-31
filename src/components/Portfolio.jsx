@@ -1,10 +1,6 @@
 import styles from './Portfolio.module.css';
-
-const projects = [
-  { title: 'Stilvol', cat: 'Brand Identity', color: '#e8f4e8' },
-  { title: 'Unicorn', cat: 'Social Media', color: '#e8e8f4' },
-  { title: 'EventFurniture', cat: 'Web Design', color: '#f4e8e8' },
-];
+import Link from 'next/link';
+import projects from '../data/projects';
 
 export default function Portfolio() {
   return (
@@ -18,7 +14,6 @@ export default function Portfolio() {
           <span
             className="section-tag"
             data-animate
-            data-scramble
           >
             Portfolio
           </span>
@@ -26,7 +21,6 @@ export default function Portfolio() {
             <h2
               className={styles.heading}
               data-animate
-              data-scramble
             >
               Explore our most<br />successful projects
             </h2>
@@ -39,29 +33,34 @@ export default function Portfolio() {
         <div className={styles.grid}>
           {projects.map((p, i) => (
             <div
-              key={i}
-              className={styles.card}
+              key={p.slug}
+              className={styles.cardWrapper}
               data-animate
               data-parallax
               data-parallax-strength={(i % 2 === 0 ? 14 : -14)}
             >
-              <div
-                className={styles.thumb}
-                style={{ background: p.color }}
-              >
-                {/* Placeholder visual */}
-                <div className={styles.thumbInner}>
-                  <div className={styles.thumbShape} />
-                  <div className={styles.thumbLines}>
-                    <span /><span /><span />
+              <Link href={`/projects/${p.slug}`} className={styles.card}>
+                <div
+                  className={styles.thumb}
+                  style={{
+                    backgroundColor: p.color || 'transparent',
+                    backgroundImage: p.image ? `url(${p.image})` : 'none',
+                  }}
+                >
+                  <div className={styles.thumbInner}>
+                    <div className={styles.thumbShape} />
+                    <div className={styles.thumbLines}>
+                      <span /><span /><span />
+                    </div>
                   </div>
+                  <span className={styles.viewBtn}>View Project →</span>
                 </div>
-                <span className={styles.viewBtn}>View Project →</span>
-              </div>
-              <div className={styles.meta}>
-                <span className={styles.projectCat}>{p.cat}</span>
-                <h3 className={styles.projectTitle}>{p.title}</h3>
-              </div>
+                <div className={styles.meta}>
+                  <span className={styles.projectCat}>{p.cat}</span>
+                  <h3 className={styles.projectTitle}>{p.title}</h3>
+                  <p className={styles.projectDescription}>{p.description}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

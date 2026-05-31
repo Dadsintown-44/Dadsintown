@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 
@@ -32,13 +33,13 @@ export default function Navbar() {
       <div className={styles.inner}>
 
         {/* ↓ Logo image replaces the text anchor */}
-        <a href="#" className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <img
             src="/dadsintown-logo-source1.png"
             alt="Dadsintown logo"
             className={styles.logoImg}
           />
-        </a>
+        </Link>
 
         <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
           {navLinks.map((link) => (
