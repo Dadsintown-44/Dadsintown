@@ -2,32 +2,22 @@ import styles from './Services.module.css';
 
 const services = [
   {
-    icon: '✦',
-    title: 'Logo Design',
-    desc: 'Unique, memorable logos that capture your brand\'s essence and leave a lasting impression.',
-  },
-  {
-    icon: '✧',
-    title: 'Brand Identity',
-    desc: 'Complete brand systems including color, typography, and guidelines that build strong recognition.',
-  },
-  {
-    icon: '◉',
+    num: '01',
     title: 'Website Design',
     desc: 'Modern, responsive websites designed to deliver seamless experiences and drive conversions.',
   },
   {
-    icon: '◎',
+    num: '02',
     title: 'Social Media Handling',
     desc: 'Creative content and strategy to grow your audience and keep your brand active across platforms.',
   },
   {
-    icon: '⬢',
+    num: '03',
     title: 'Digital Marketing',
     desc: 'Data-driven campaigns that increase visibility, generate leads, and maximize your ROI.',
   },
   {
-    icon: '✺',
+    num: '04',
     title: 'Content Creation',
     desc: 'Engaging visuals, videos, and copy that tell your brand\'s story and spark real connections.',
   },
@@ -35,64 +25,30 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className={styles.services}>
+    <section id="services" className={styles.services} data-animate-section>
+      <div className={styles.bgBubbles}>
+        <div className={`${styles.bubble} ${styles.bubble1}`} />
+        <div className={`${styles.bubble} ${styles.bubble2}`} />
+      </div>
       <div className={styles.container}>
-        
-        {/* Hero Section */}
-        <div className={styles.heroSection} data-animate-section>
-          <div className={styles.heroLeft}>
-            <span className="section-tag" data-animate>
-              Our Services
-            </span>
-
-            <h2 className={styles.heroHeading} data-animate>
-              Services that build brands and drive growth.
-            </h2>
-
-            <p className={styles.heroDesc} data-animate>
-              From branding to digital growth, we offer end-to-end solutions that help your brand stand out, connect, and scale.
-            </p>
-
-            <button className={styles.ctaButton} data-animate>
-              Let's Build Together
-              <span>→</span>
-            </button>
-          </div>
-
-          <div className={styles.heroRight} data-animate>
-            <div className={styles.imagePlaceholder}>
-              {/* Image placeholder - user will add image */}
-            </div>
-          </div>
+        <div className={styles.header}>
+          <span className={styles.tag} data-animate>WHAT WE DO</span>
+          <h2 className={styles.heading} data-animate>Services</h2>
         </div>
 
-        {/* Services Grid Section */}
-        <div className={styles.gridSection} data-animate-section>
-          <div className={styles.gridHeader}>
-            <span className={styles.gridTag}>What we do</span>
-            <h3 className={styles.gridHeading}>
-              Complete digital solutions<br />for your brand
-            </h3>
-          </div>
-
-          <div className={styles.grid}>
-            {services.map((svc) => (
-              <div key={svc.title} className={styles.card} data-animate>
-                <span className={styles.icon} aria-hidden="true">
-                  {svc.icon}
-                </span>
-
-                <h3 className={styles.cardTitle}>{svc.title}</h3>
-
-                <p className={styles.cardDesc}>{svc.desc}</p>
-
-                <a href="#contact" className={styles.cardLink}>
-                  Explore
-                  <span className={styles.cardArrow}>→</span>
-                </a>
+        <div className={styles.list}>
+          {services.map((svc) => (
+            <div key={svc.num} className={styles.card} data-animate>
+              <div className={styles.num}>{svc.num}</div>
+              <div className={styles.content}>
+                <h3 className={styles.title}>{svc.title}</h3>
+                <p className={styles.desc}>{svc.desc}</p>
               </div>
-            ))}
-          </div>
+              <div className={styles.arrowWrap}>
+                <span className={styles.arrow}>↗</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

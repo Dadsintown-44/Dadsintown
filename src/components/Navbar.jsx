@@ -17,7 +17,11 @@ export default function Navbar() {
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) {
+      window.location.href = `/#${id}`;
+      setMenuOpen(false);
+      return;
+    }
 
     if (window.lenis) {
       window.lenis.scrollTo(el, { offset: -8 });

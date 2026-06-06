@@ -5,8 +5,8 @@ import Link from 'next/link';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Projects — Dadsintown',
-  description: 'A curated list of projects and case studies.',
+  title: 'All Projects — Dadsintown',
+  description: 'Explore every premium website, brand experience, and case study crafted by Dadsintown.',
 };
 
 export default function ProjectsPage() {
@@ -14,37 +14,43 @@ export default function ProjectsPage() {
     <>
       <Navbar />
       <main className={styles.page}>
-        <section className={styles.hero}>
-          <span className="section-tag">Projects</span>
-          <h1>Selected work built for modern brands.</h1>
-          <p>
-            Explore premium case studies, digital experiences, and high-impact websites created for businesses seeking quality design and strong performance.
-          </p>
+        <section className={styles.hero} data-animate-section>
+          <span className="section-tag" data-animate>All projects</span>
+          <div className={styles.heroRow}>
+            <h1 data-animate>Selected work for modern brands.</h1>
+            <p data-animate>
+              A clean archive of websites and digital experiences crafted with strong visuals, smooth interactions, and business-focused execution.
+            </p>
+          </div>
         </section>
 
-        <section className={styles.grid}>
-          {projects.map((p) => (
+        <section className={styles.grid} data-animate-section>
+          {projects.map((project, index) => (
             <Link
-              key={p.slug}
-              href={`/projects/${p.slug}`}
+              key={project.slug}
+              href={`/projects/${project.slug}`}
               className={styles.card}
+              data-animate
             >
               <div
                 className={styles.cardImage}
                 style={{
-                  backgroundColor: p.color || 'var(--color-bg-card)',
-                  backgroundImage: p.image ? `url(${p.image})` : 'none',
+                  backgroundColor: project.color || 'var(--color-bg-card)',
+                  backgroundImage: project.image ? `url(${project.image})` : 'none',
                 }}
               />
+
               <div className={styles.cardBody}>
-                <span className={styles.badge}>{p.cat}</span>
-                <h2 className={styles.cardTitle}>{p.title}</h2>
-                <p className={styles.cardDesc}>{p.metaDescription || p.description}</p>
                 <div className={styles.cardMeta}>
-                  {p.client && <span>Client: {p.client}</span>}
-                  {p.year && <span>{p.year}</span>}
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <span>{project.cat}</span>
+                  {project.year && <span>{project.year}</span>}
                 </div>
-                <span className={styles.link}>View Project →</span>
+
+                <h2 className={styles.cardTitle}>{project.title}</h2>
+                <p className={styles.cardDesc}>{project.description}</p>
+
+                <span className={styles.link}>View project →</span>
               </div>
             </Link>
           ))}

@@ -1,12 +1,15 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 
 export default function ScrollAnimations() {
+  const pathname = usePathname();
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -103,7 +106,7 @@ export default function ScrollAnimations() {
       lenis.destroy();
       delete window.lenis;
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

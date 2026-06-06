@@ -4,65 +4,59 @@ import projects from '../data/projects';
 
 export default function Portfolio() {
   return (
-    <section
-      id="portfolio"
-      className={styles.portfolio}
-      data-animate-section
-    >
+    <section id="portfolio" className={styles.portfolio}>
+      <div className={styles.bgBubbles}>
+        <div className={`${styles.bubble} ${styles.bubble1}`} />
+        <div className={`${styles.bubble} ${styles.bubble2}`} />
+        <div className={`${styles.bubble} ${styles.bubble3}`} />
+      </div>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <span
-            className="section-tag"
-            data-animate
-          >
-            Portfolio
-          </span>
-          <div className={styles.headerRow}>
-            <h2
-              className={styles.heading}
-              data-animate
-            >
-              Explore our most<br />successful projects
-            </h2>
-            <a href="#" className={styles.viewAll} data-animate>
-              All projects →
-            </a>
-          </div>
+        <div className={styles.header} data-animate-section>
+          <span className={styles.tag} data-animate>OUR WORK</span>
+          <h2 className={styles.heading} data-animate>Projects</h2>
         </div>
 
-        <div className={styles.grid}>
+        <div className={styles.list}>
           {projects.map((p, i) => (
-            <div
-              key={p.slug}
-              className={styles.cardWrapper}
-              data-animate
-              data-parallax
-              data-parallax-strength={(i % 2 === 0 ? 14 : -14)}
+            <div 
+              key={p.slug} 
+              className={styles.card}
+              style={{ '--card-index': i }}
+              data-animate-section
             >
-              <Link href={`/projects/${p.slug}`} className={styles.card}>
-                <div
-                  className={styles.thumb}
-                  style={{
-                    backgroundColor: p.color || 'transparent',
-                    backgroundImage: p.image ? `url(${p.image})` : 'none',
-                  }}
-                >
-                  <div className={styles.thumbInner}>
-                    <div className={styles.thumbShape} />
-                    <div className={styles.thumbLines}>
-                      <span /><span /><span />
-                    </div>
+              <div className={styles.cardHeader} data-animate>
+                <div className={styles.headerLeft}>
+                  <span className={styles.num}>{(i + 1).toString().padStart(2, '0')}</span>
+                  <div className={styles.titleWrap}>
+                    <span className={styles.catLabel}>{p.cat}</span>
+                    <h3 className={styles.titleLabel}>{p.title}</h3>
                   </div>
-                  <span className={styles.viewBtn}>View Project →</span>
                 </div>
-                <div className={styles.meta}>
-                  <span className={styles.projectCat}>{p.cat}</span>
-                  <h3 className={styles.projectTitle}>{p.title}</h3>
-                  <p className={styles.projectDescription}>{p.description}</p>
+                <Link href={`/projects/${p.slug}`} className={styles.viewBtn}>
+                  LIVE PROJECT
+                </Link>
+              </div>
+              <div className={styles.imagesWrap} data-animate>
+                <div className={styles.largeImageBox}>
+                  {p.image && <img src={p.image} alt={p.title} className={styles.img} />}
                 </div>
-              </Link>
+                <div className={styles.smallImagesWrap}>
+                  <div className={styles.smallImageBox}>
+                    {p.image && <img src={p.image} alt={`${p.title} detail 1`} className={styles.img} />}
+                  </div>
+                  <div className={styles.smallImageBox}>
+                    {p.image && <img src={p.image} alt={`${p.title} detail 2`} className={styles.img} />}
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
+        </div>
+        
+        <div className={styles.footer} data-animate-section>
+          <Link href="/projects" className={styles.viewAllBtn} data-animate>
+            VIEW ALL PROJECTS ↗
+          </Link>
         </div>
       </div>
     </section>
