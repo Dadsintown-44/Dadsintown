@@ -1,0 +1,17 @@
+{
+  "/api/admin/contacts/route": "/api/admin/contacts",
+  "/api/admin/checkAuth/route": "/api/admin/checkAuth",
+  "/api/admin/reviews/route": "/api/admin/reviews",
+  "/api/admin/services/route": "/api/admin/services",
+  "/api/admin/projects/route": "/api/admin/projects",
+  "/api/contact/route": "/api/contact",
+  "/api/admin/login/route": "/api/admin/login",
+  "/api/reviews/route": "/api/reviews",
+  "/_not-found/page": "/_not-found",
+  "/api/version/route": "/api/version",
+  "/admin/page": "/admin",
+  "/page": "/",
+  "/admin/dashboard/page": "/admin/dashboard",
+  "/projects/[slug]/page": "/projects/[slug]",
+  "/projects/page": "/projects"
+}

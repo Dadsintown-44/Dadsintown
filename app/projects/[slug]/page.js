@@ -5,7 +5,8 @@ import Footer from '../../../src/components/Footer';
 import styles from './page.module.css';
 
 export async function generateMetadata({ params }) {
-  const project = projects.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: 'Project not found' };
   return {
     title: `${project.title} — Dadsintown`,
@@ -24,8 +25,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ProjectDetail({ params }) {
-  const project = projects.find((p) => p.slug === params.slug);
+export default async function ProjectDetail({ params }) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
 
   return (

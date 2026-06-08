@@ -1,0 +1,225 @@
+.shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(0,0,0,0.04), transparent 32%),
+    linear-gradient(180deg, #fbfbf8 0%, #ffffff 100%);
+}
+
+.main {
+  padding-top: calc(var(--nav-height) + 2rem);
+  padding-bottom: 3rem;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.hero {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border-radius: 28px;
+  padding: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 560px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: auto -140px -160px auto;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  max-width: 10ch;
+  margin-top: 1rem;
+}
+
+.copy {
+  max-width: 440px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.metaRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.metaCard {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.metaLabel {
+  display: block;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.metaValue {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.loginCard {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formTitle {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  margin-bottom: 0.5rem;
+}
+
+.formText {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  border-radius: 16px;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-smooth), box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.input::placeholder {
+  color: #aaa;
+}
+
+.input:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 4px rgba(17,17,17,0.08);
+}
+
+.submit {
+  margin-top: 0.5rem;
+  width: 100%;
+  border-radius: 999px;
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 0.95rem 1.2rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  transition: transform var(--duration-fast) var(--ease-smooth), background var(--duration-fast) var(--ease-smooth);
+}
+
+.submit:hover {
+  transform: translateY(-1px);
+  background: #222;
+}
+
+.error {
+  color: #a61b1b;
+  background: #fff1f1;
+  border: 1px solid #ffd0d0;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
+}
+
+.hint {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding-top: calc(var(--nav-height) + 1rem);
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .metaRow {
+    grid-template-columns: 1fr;
+  }
+}
